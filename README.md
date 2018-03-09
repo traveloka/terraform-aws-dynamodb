@@ -1,6 +1,6 @@
 AWS DynamoDB idgen-seed Terraform module
 ========================================
-Terraform module which creates a DynamoDB table for idgen-seed.
+A Terraform module which creates a DynamoDB table for idgen-seed.
 
 Variables
 ---------
