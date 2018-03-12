@@ -13,11 +13,11 @@ Description: The name of the product domain. This will become the prefix of the 
 ### Optional Variables
 
 ##### write_capacity
-Description: The write capacity of the table.
+Description: The write capacity of the table.\
 Default: 5
 
 ##### read_capacity
-Description: The read capacity of the table.
+Description: The read capacity of the table.\
 Default: 1
 
 Outputs
