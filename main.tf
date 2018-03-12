@@ -16,10 +16,10 @@ resource "aws_dynamodb_table" "idgen-seed-dynamodb-table" {
   }
 
   tags {
-    Name          = "${var.product_domain}-idgen-seed-${random_string.random_id.result}"
-    Service       = "${var.service_name}"
-    ProductDomain = "${var.product_domain}"
-    Environment   = "${var.environment}"
     Description   = "${var.description}"
+    Environment   = "${var.environment}"
+    Name          = "${var.product_domain}-idgen-seed-${random_string.random_id.result}"
+    ProductDomain = "${var.product_domain}"
+    Service       = "${var.service_name}"
   }
 }
