@@ -1,11 +1,9 @@
-resource "random_string" "random_id" {
-  length  = 16
-  special = false
-  upper   = false
+resource "random_id" "suffix" {
+  byte_length  = 8
 }
 
 resource "aws_dynamodb_table" "idgen_seed_dynamodb_table" {
-  name           = "${var.product_domain}-idgen-seed-${random_string.random_id.result}"
+  name           = "${var.product_domain}-idgen-seed-${random_id.suffix.hex}"
   hash_key       = "id"
   write_capacity = "${var.write_capacity}"
   read_capacity  = "${var.read_capacity}"
@@ -18,7 +16,7 @@ resource "aws_dynamodb_table" "idgen_seed_dynamodb_table" {
   tags {
     Description   = "${var.description}"
     Environment   = "${var.environment}"
-    Name          = "${var.product_domain}-idgen-seed-${random_string.random_id.result}"
+    Name          = "${var.product_domain}-idgen-seed-${random_id.suffix.hex}"
     ProductDomain = "${var.product_domain}"
     Service       = "${var.service_name}"
   }
