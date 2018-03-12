@@ -10,14 +10,8 @@ Variables
 ##### product_domain
 Description: The name of the product domain. This will become the prefix of the table name.
 
-##### service_name
-Description: The name of the service this DynamoDB table belongs to.
-
 ##### environment
 Description: The environment this DynamoDB table belongs to.
-
-##### description
-Description: The description of this DynamoDB table.
 
 ### Optional
 
@@ -28,6 +22,14 @@ Default: 5
 ##### read_capacity
 Description: The read capacity of the table.\
 Default: 1
+
+##### service_name
+Description: The name of the service this DynamoDB table belongs to.\
+Default: "idgen-seed"
+
+##### description
+Description: The description of this DynamoDB table.\
+Default: "The DynamoDB table for storing idgen seed"
 
 Outputs
 ---------
@@ -45,13 +47,13 @@ Usage
 module "idgen-seed-dynamodb-table" {
   source         = "github.com/traveloka/terraform-aws-dynamodb-idgen-seed?ref=master"
   product_domain = "bei"
-  service_name   = "beibc"
-  environment    = "special"
-  description    = "The idgen-seed table for domain bei"
+  environment    = "prod"
 
   # Optional
   write_capacity = 5
   read_capacity  = 1
+  service_name   = "beibc"
+  description    = "The idgen-seed table for domain bei"
 }
 ```
 
