@@ -1,6 +1,7 @@
-variable "product_domain" {
-  description = "The name of the product domain"
+variable "description" {
+  description = "The description of this DynamoDB table"
   type        = "string"
+  default     = "The DynamoDB table for storing idgen seed"
 }
 
 variable "environment" {
@@ -8,10 +9,9 @@ variable "environment" {
   type        = "string"
 }
 
-variable "write_capacity" {
-  description = "The write capacity of the table"
+variable "product_domain" {
+  description = "The name of the product domain"
   type        = "string"
-  default     = 5
 }
 
 variable "read_capacity" {
@@ -26,8 +26,8 @@ variable "service_name" {
   default     = "idgen-seed"
 }
 
-variable "description" {
-  description = "The description of this DynamoDB table"
+variable "write_capacity" {
+  description = "The write capacity of the table"
   type        = "string"
-  default     = "The DynamoDB table for storing idgen seed"
+  default     = 5
 }

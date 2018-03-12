@@ -4,7 +4,7 @@ resource "random_string" "random_id" {
   upper   = false
 }
 
-resource "aws_dynamodb_table" "idgen-seed-dynamodb-table" {
+resource "aws_dynamodb_table" "idgen_seed_dynamodb_table" {
   name           = "${var.product_domain}-idgen-seed-${random_string.random_id.result}"
   hash_key       = "id"
   write_capacity = "${var.write_capacity}"
