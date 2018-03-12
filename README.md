@@ -45,6 +45,9 @@ Usage
 module "idgen-seed-dynamodb-table" {
   source         = "github.com/traveloka/terraform-aws-dynamodb-idgen-seed?ref=master"
   product_domain = "bei"
+  service_name   = "beibc"
+  environment    = "special"
+  description    = "The idgen-seed table for domain bei"
 
   # Optional
   write_capacity = 5
