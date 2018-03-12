@@ -15,18 +15,11 @@ resource "aws_dynamodb_table" "idgen-seed-dynamodb-table" {
     type = "N"
   }
 
-  attribute {
-    name = "lockedBy"
-    type = "S"
-  }
-
-  attribute {
-    name = "lockedUntil"
-    type = "N"
-  }
-
   tags {
     Name          = "${var.product_domain}-idgen-seed-${random_string.random_id.result}"
+    Service       = "${var.service_name}"
     ProductDomain = "${var.product_domain}"
+    Environment   = "${var.environment}"
+    Description   = "${var.description}"
   }
 }

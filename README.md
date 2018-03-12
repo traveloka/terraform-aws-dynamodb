@@ -5,12 +5,21 @@ Terraform module which creates a DynamoDB table for idgen-seed.
 Variables
 ---------
 
-### Required Variables
+### Required
 
 ##### product_domain
 Description: The name of the product domain. This will become the prefix of the table name.
 
-### Optional Variables
+##### service_name
+Description: The name of the service this DynamoDB table belongs to.
+
+##### environment
+Description: The environment this DynamoDB table belongs to.
+
+##### description
+Description: The description of this DynamoDB table.
+
+### Optional
 
 ##### write_capacity
 Description: The write capacity of the table.\

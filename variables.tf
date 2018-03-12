@@ -3,6 +3,21 @@ variable "product_domain" {
   type        = "string"
 }
 
+variable "service_name" {
+  description = "The name of the service this DynamoDB table belongs to"
+  type        = "string"
+}
+
+variable "environment" {
+  description = "The environment this DynamoDB table belongs to"
+  type        = "string"
+}
+
+variable "description" {
+  description = "The description of this DynamoDB table"
+  type        = "string"
+}
+
 variable "write_capacity" {
   description = "The write capacity of the table"
   type        = "string"
