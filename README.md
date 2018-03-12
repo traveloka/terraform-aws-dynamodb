@@ -5,29 +5,23 @@ Terraform module which creates a DynamoDB table for idgen-seed.
 Variables
 ---------
 
-### Required Variables
+- **description** - (Optional, Default: "The DynamoDB table for storing idgen seed") The description of this DynamoDB table.
 
-##### product_domain
-Description: The name of the product domain. This will become the prefix of the table name.
+- **environment** - (Required) The environment this DynamoDB table belongs to.
 
-### Optional Variables
+- **product_domain** - (Required) The name of the product domain. This will become the prefix of the table name.
 
-##### write_capacity
-Description: The write capacity of the table.
-Default: 5
+- **read_capacity** - (Optional, Default: 1) The read capacity of the table.
 
-##### read_capacity
-Description: The read capacity of the table.
-Default: 1
+- **service_name** - (Optional, Default: "idgen-seed") The name of the service this DynamoDB table belongs to.
+
+- **write_capacity** - (Optional, Default: 5) The write capacity of the table.
 
 Outputs
 ---------
+- **arn** - The arn of the table.
 
-##### id
-Description: The name of the table.
-
-##### arn
-Description: The arn of the table.
+- **id** - The name of the table.
 
 Usage
 -----
@@ -36,10 +30,13 @@ Usage
 module "idgen-seed-dynamodb-table" {
   source         = "github.com/traveloka/terraform-aws-dynamodb-idgen-seed?ref=master"
   product_domain = "bei"
+  environment    = "prod"
 
   # Optional
   write_capacity = 5
   read_capacity  = 1
+  service_name   = "beibc"
+  description    = "The idgen-seed table for domain bei"
 }
 ```
 
