@@ -1,11 +1,9 @@
-resource "random_string" "random_id" {
-  length  = 16
-  special = false
-  upper   = false
+resource "random_id" "suffix" {
+  byte_length  = 8
 }
 
-resource "aws_dynamodb_table" "idgen-seed-dynamodb-table" {
-  name           = "${var.product_domain}-idgen-seed-${random_string.random_id.result}"
+resource "aws_dynamodb_table" "idgen_seed_dynamodb_table" {
+  name           = "${var.product_domain}-idgen-seed-${random_id.suffix.hex}"
   hash_key       = "id"
   write_capacity = "${var.write_capacity}"
   read_capacity  = "${var.read_capacity}"
@@ -15,18 +13,11 @@ resource "aws_dynamodb_table" "idgen-seed-dynamodb-table" {
     type = "N"
   }
 
-  attribute {
-    name = "lockedBy"
-    type = "S"
-  }
-
-  attribute {
-    name = "lockedUntil"
-    type = "N"
-  }
-
   tags {
-    Name          = "${var.product_domain}-idgen-seed-${random_string.random_id.result}"
+    Description   = "${var.description}"
+    Environment   = "${var.environment}"
+    Name          = "${var.product_domain}-idgen-seed-${random_id.suffix.hex}"
     ProductDomain = "${var.product_domain}"
+    Service       = "${var.service_name}"
   }
 }
