@@ -29,5 +29,6 @@ resource "aws_dynamodb_table" "idgen_seed_dynamodb_table" {
     Environment   = "${var.environment}"
     Name          = "${random_id.table_name.hex}"
     ProductDomain = "${var.product_domain}"
+    ManagedBy     = "Terraform"
   }
 }
