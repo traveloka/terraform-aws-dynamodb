@@ -14,10 +14,9 @@ resource "aws_dynamodb_table" "idgen_seed_dynamodb_table" {
   }
 
   tags {
-    Description   = "${var.description}"
+    Description   = "The DynamoDB table for storing idgen seed"
     Environment   = "${var.environment}"
     Name          = "${var.product_domain}-idgen-seed-${random_id.suffix.hex}"
     ProductDomain = "${var.product_domain}"
-    Service       = "${var.service_name}"
   }
 }
