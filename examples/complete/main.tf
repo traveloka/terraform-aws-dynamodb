@@ -6,5 +6,5 @@ module "idgen_seed" {
   source = "../../"
 
   product_domain = "bei"
-  environment    = "special"
+  environment    = "production"
 }
