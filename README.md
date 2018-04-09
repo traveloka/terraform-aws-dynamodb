@@ -8,15 +8,11 @@ Usage
 
 ```hcl
 module "idgen-seed-dynamodb-table" {
-  source         = "github.com/traveloka/terraform-aws-dynamodb-idgen-seed?ref=master"
-  product_domain = "bei"
-  environment    = "prod"
+  source  = "github.com/traveloka/terraform-aws-dynamodb-idgen-seed"
+  version = "0.1.0"
 
-  # Optional
-  write_capacity = 5
-  read_capacity  = 1
-  service_name   = "beibc"
-  description    = "The idgen-seed table for domain bei"
+  product_domain = "bei"
+  environment    = "production"
 }
 ```
 
