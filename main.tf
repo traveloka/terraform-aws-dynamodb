@@ -14,11 +14,14 @@ resource "random_id" "table_name" {
 }
 
 resource "aws_dynamodb_table" "idgen_seed_dynamodb_table" {
-  name                   = "${random_id.table_name.hex}"
-  hash_key               = "id"
-  write_capacity         = "${var.write_capacity}"
-  read_capacity          = "${var.read_capacity}"
-  server_side_encryption = true
+  name           = "${random_id.table_name.hex}"
+  hash_key       = "id"
+  write_capacity = "${var.write_capacity}"
+  read_capacity  = "${var.read_capacity}"
+
+  server_side_encryption {
+    enabled = true
+  }
 
   attribute {
     name = "id"
