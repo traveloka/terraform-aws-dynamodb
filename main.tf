@@ -9,8 +9,8 @@ locals {
 }
 
 resource "random_id" "table_name" {
-  prefix       = "${local.table_name_prefix}"
-  byte_length  = "${local.table_name_suffix_byte_length}"
+  prefix      = "${local.table_name_prefix}"
+  byte_length = "${local.table_name_suffix_byte_length}"
 }
 
 resource "aws_dynamodb_table" "idgen_seed_dynamodb_table" {
@@ -18,6 +18,10 @@ resource "aws_dynamodb_table" "idgen_seed_dynamodb_table" {
   hash_key       = "id"
   write_capacity = "${var.write_capacity}"
   read_capacity  = "${var.read_capacity}"
+
+  server_side_encryption {
+    enabled = true
+  }
 
   attribute {
     name = "id"
